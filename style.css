@@ -1,4 +1,7 @@
-
+html,
+body {
+  overflow: hidden;
+}
 .bg{
     background-image: url("space-background.png");
     inset: 0;
@@ -7,12 +10,18 @@
     position: fixed;
     z-index: -1;
 }
-
 .card {
-  width: 80px;
-  height: 110px;
+  width: 100px;
+  height: 100px;
   border-radius: 10px;
   overflow: hidden;
+  border: 2px solid #241ab3;
+  box-sizing: border-box;
+  box-shadow: 0 0 8px #4da6ff;
+}
+
+.card:hover {
+  box-shadow: 0 0 15px #360b82;
 }
 
 .card img {
@@ -23,9 +32,41 @@
 .game-board {
   display: flex;
   flex-wrap: wrap;
-  width: 360px;
+  width: 450px;
   gap: 10px;
   margin: 0 auto;
+  justify-content: center;
 }
 
+h1 {
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px white;
+}
 
+h2 {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+button {
+  width: 180px;
+  height: 55px;
+  border: 2px solid transparent;
+  border-radius: 40px;
+
+  background:
+    linear-gradient(#4b147d, #5b188f) padding-box,
+    linear-gradient(90deg, #b43cff, #7d35ff, #5de0ff, #b43cff) border-box;
+
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+
+  cursor: pointer;
+  display: block;
+  margin: 25px auto 0;
+}
