@@ -15,9 +15,15 @@ body {
   height: 100px;
   border-radius: 10px;
   overflow: hidden;
-  border: 2px solid #241ab3;
+  border: 3px solid transparent;
   box-sizing: border-box;
-  box-shadow: 0 0 8px #4da6ff;
+  font-size: 50px;
+  text-align: center;
+  line-height: 100px;
+  
+  background:
+    linear-gradient(#16052f, #35106b) padding-box,
+    linear-gradient(90deg, #b43cff, #5de0ff, #7d35ff) border-box;
 }
 
 .card:hover {
