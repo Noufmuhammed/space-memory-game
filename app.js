@@ -8,6 +8,7 @@ let matchedCards = []
 
 /*------------------------ Cached Element References ------------------------*/
 const cards = document.querySelectorAll(".card")
+const resetBtn = document.querySelector("#resetBtn")
 
 console.log(cards)
 
@@ -64,8 +65,19 @@ function handleCardClick(event) {
     }
 }
 
+function resetGame() {
+    flippedCards = []
+    matchedCards = []
+
+    for (let oneCard of cards) {
+        oneCard.querySelector("img").style.display = "block"
+    }
+}
+
 /*-------------------------------- Event Listeners ----------------------------*/
 
 for (let oneCard of cards) {
     oneCard.addEventListener("click", handleCardClick)
 }
+
+resetBtn.addEventListener("click", resetGame)
