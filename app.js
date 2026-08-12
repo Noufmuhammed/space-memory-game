@@ -72,6 +72,24 @@ function resetGame() {
     for (let oneCard of cards) {
         oneCard.querySelector("img").style.display = "block"
     }
+
+    shuffleCards()
+}
+
+function shuffleCards() {
+    const cardArray = Array.from(cards)
+
+    function randOrd() {
+        return Math.round(Math.random()) - 0.5
+    }
+
+    cardArray.sort(randOrd)
+
+    const gameBoard = document.querySelector(".game-board")
+
+    for (let oneCard of cardArray) {
+        gameBoard.appendChild(oneCard)
+    }
 }
 
 /*-------------------------------- Event Listeners ----------------------------*/
@@ -81,3 +99,5 @@ for (let oneCard of cards) {
 }
 
 resetBtn.addEventListener("click", resetGame)
+
+shuffleCards()
