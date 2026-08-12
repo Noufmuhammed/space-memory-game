@@ -6,6 +6,7 @@ console.log("JavaScript is working")
 
 /*-------------------------------- Variables --------------------------------*/
 let flippedCards = []
+let matchedCards = []
 
 
 /*------------------------ Cached Element References ------------------------*/
@@ -16,6 +17,8 @@ console.log(cards)
 
 /*-------------------------------- Functions --------------------------------*/     
 function handleCardClick(event) {
+  const clickedCard = event.target.closest(".card")
+
   console.log("Card clicked")
   console.log(event.target)
   console.log(event.target.id)
@@ -24,21 +27,36 @@ function handleCardClick(event) {
     return
   }
 
-  flippedCards.push(event.target)
+  if (matchedCards.includes(clickedCard)) {
+    return
+  }
+
+  if (flippedCards.includes(clickedCard)) {
+    return
+  }
+
+  flippedCards.push(clickedCard)
   console.log(flippedCards)
 
   event.target.style.display = "none"
 
   if (flippedCards.length === 2) {
-    if (flippedCards[0].id === flippedCards[1].id) {
+    if (flippedCards[0].querySelector("img").id === flippedCards[1].querySelector("img").id) {
       console.log("Match!")
+
+      matchedCards.push(flippedCards[0])
+      matchedCards.push(flippedCards[1])
+
       flippedCards = []
     } else {
       console.log("Not a match!")
 
+      const firstCard = flippedCards[0]
+      const secondCard = flippedCards[1]
+
       setTimeout(function() {
-        flippedCards[0].style.display = "block"
-        flippedCards[1].style.display = "block"
+        firstCard.querySelector("img").style.display = "block"
+        secondCard.querySelector("img").style.display = "block"
         flippedCards = []
       }, 1000)
     }
