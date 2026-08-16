@@ -7,11 +7,13 @@ let flippedCards = []
 let matchedCards = []
 let attempts = 0
 const maxAttempts = 20
+let pairsMatched = 0
 
 /*------------------------ Cached Element References ------------------------*/
 const cards = document.querySelectorAll(".card")
 const resetBtn = document.querySelector("#resetBtn")
 const attemptsBox = document.querySelector("#attemptsBox")
+const pairsBox = document.querySelector("#pairsBox")
 
 console.log(cards)
 
@@ -44,15 +46,19 @@ function handleCardClick(event) {
     if (flippedCards.length === 2) {
         attempts++
         attemptsBox.textContent = `Attempts: ${attempts} / ${maxAttempts}`
+
         if (attempts === maxAttempts) {
-        return
-         }
+            return
+        }
 
         if (
             flippedCards[0].querySelector("img").id ===
             flippedCards[1].querySelector("img").id
         ) {
             console.log("Match!")
+
+            pairsMatched = pairsMatched + 1
+            pairsBox.textContent = `Pairs Matched: ${pairsMatched} / 8`
 
             matchedCards.push(flippedCards[0])
             matchedCards.push(flippedCards[1])
@@ -78,7 +84,10 @@ function resetGame() {
     flippedCards = []
     matchedCards = []
     attempts = 0
+    pairsMatched = 0
+
     attemptsBox.textContent = `Attempts: ${attempts} / ${maxAttempts}`
+    pairsBox.textContent = `Pairs Matched: ${pairsMatched} / 8`
 
     for (let oneCard of cards) {
         oneCard.querySelector("img").style.display = "block"
