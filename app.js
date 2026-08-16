@@ -14,7 +14,7 @@ const cards = document.querySelectorAll(".card")
 const resetBtn = document.querySelector("#resetBtn")
 const attemptsBox = document.querySelector("#attemptsBox")
 const pairsBox = document.querySelector("#pairsBox")
-
+const winMessage = document.querySelector("#winMessage")
 console.log(cards)
 
 /*-------------------------------- Functions --------------------------------*/
@@ -59,6 +59,9 @@ function handleCardClick(event) {
 
             pairsMatched = pairsMatched + 1
             pairsBox.textContent = `Pairs Matched: ${pairsMatched} / 8`
+            if (pairsMatched === 8) {
+            winMessage.textContent = "You Won! You matched all 8 pairs!🎉"
+            }
 
             matchedCards.push(flippedCards[0])
             matchedCards.push(flippedCards[1])
