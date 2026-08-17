@@ -61,14 +61,16 @@ function handleCardClick(event) {
             pairsBox.textContent = `Pairs Matched: ${pairsMatched} / 8`
             if (pairsMatched === 8) {
             winMessage.textContent = "You Won! You matched all 8 pairs!🎉"
+            winMessage.style.display = "block"
             }
+
 
             matchedCards.push(flippedCards[0])
             matchedCards.push(flippedCards[1])
 
             flippedCards = []
-
-        } else {
+        }
+         else {
             console.log("Not a match!")
 
             const firstCard = flippedCards[0]
@@ -92,6 +94,7 @@ function resetGame() {
     attemptsBox.textContent = `Attempts: ${attempts} / ${maxAttempts}`
     pairsBox.textContent = `Pairs Matched: ${pairsMatched} / 8`
     winMessage.textContent = ""
+    winMessage.style.display = "none"
     for (let oneCard of cards) {
         oneCard.querySelector("img").style.display = "block"
     }

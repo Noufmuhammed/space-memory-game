@@ -35,52 +35,11 @@ body {
   height: 100%;
   object-fit: cover;
 }
-.game-board {
-  display: flex;
-  flex-wrap: wrap;
-  width: 450px;
-  gap: 10px;
-  margin: 0 auto;
-  justify-content: center;
-}
-
-h1 {
-  text-align: center;
-  color: white;
-  font-size: 50px;
-  margin-bottom: 10px;
-  text-shadow: 0 0 10px white;
-}
-
-h2 {
-  text-align: center;
-  color: white;
-  font-size: 20px;
-  margin-bottom: 30px;
-}
-button {
-  width: 180px;
-  height: 55px;
-  border: 2px solid transparent;
-  border-radius: 40px;
-
-  background:
-    linear-gradient(#4b147d, #5b188f) padding-box,
-    linear-gradient(90deg, #b43cff, #7d35ff, #5de0ff, #b43cff) border-box;
-
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-
-  cursor: pointer;
-  display: block;
-  margin: 10px auto 0;
-}
 .game-info {
   display: flex;
   justify-content: space-between;
   width: 450px;
-  margin: 0 auto 10px;
+  margin: -10px auto 25px;
 }
 
 #attemptsBox,
@@ -89,13 +48,59 @@ button {
   font-size: 18px;
   font-weight: bold;
 }
+h1 {
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  font-size: 50px;
+  margin-bottom: 10px;
+  color: white;
+  text-shadow:
+    0 0 5px #b43cff,
+    0 0 10px #5de0ff,
+    0 0 20px #7d35ff;
+}
+
+h2 {
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+button {
+  width: 180px;
+  height: 45px;
+  border: 2px solid transparent;
+  border-radius: 40px;
+
+  background:
+    linear-gradient(#4b147d, #000000) padding-box,
+    linear-gradient(90deg, #b43cff, #7d35ff, #5de0ff, #b43cff) border-box;
+
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+
+  cursor: pointer;
+  display: block;
+  margin: 5px auto 0;
+}
+.game-board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 450px;
+  gap: 10px;
+  margin: -15px auto 0;
+  justify-content: center;
+}
+
 #winMessage {
   color: white;
   font-size: 24px;
   font-weight: bold;
   position: absolute;
   left: 50px;
-  top: 280px;
+  top: 220px;
   width: 220px;
   text-align: center;
 
@@ -107,6 +112,8 @@ button {
   background:
     linear-gradient(#16052f, #35106b) padding-box,
     linear-gradient(90deg, #b43cff, #5de0ff, #7d35ff) border-box;
+
+  display: none;
 }
 
 #alienWin {
@@ -114,4 +121,24 @@ button {
   position: absolute;
   left: 50px;
   top: 350px;
+}
+
+#attemptsBox,
+#pairsBox {
+ width: 200px;
+  height: 50px;
+  padding: 10px;
+  box-sizing: border-box;
+
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+
+  border: 3px solid transparent;
+  border-radius: 15px;
+
+  background:
+    linear-gradient(#16052f, #35106b) padding-box,
+    linear-gradient(90deg, #b43cff, #5de0ff, #7d35ff) border-box;
 }
