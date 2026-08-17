@@ -16,6 +16,7 @@ const attemptsBox = document.querySelector("#attemptsBox")
 const pairsBox = document.querySelector("#pairsBox")
 const winMessage = document.querySelector("#winMessage")
 const loseMessage = document.querySelector("#loseMessage")
+const alienWin = document.querySelector("#alienWin")
 console.log(cards)
 
 /*-------------------------------- Functions --------------------------------*/
@@ -48,12 +49,6 @@ function handleCardClick(event) {
         attempts++
         attemptsBox.textContent = `Attempts: ${attempts} / ${maxAttempts}`
 
-       if (attempts === maxAttempts) {
-    loseMessage.textContent = "You Lost! You ran out of attempts.😢"
-    loseMessage.style.display = "block"
-    return
-}
-
         if (
             flippedCards[0].querySelector("img").id ===
             flippedCards[1].querySelector("img").id
@@ -62,18 +57,18 @@ function handleCardClick(event) {
 
             pairsMatched = pairsMatched + 1
             pairsBox.textContent = `Pairs Matched: ${pairsMatched} / 8`
-            if (pairsMatched === 8) {
-            winMessage.textContent = "You Won! You matched all 8 pairs!🎉"
-            winMessage.style.display = "block"
-            }
 
+            if (pairsMatched === 8) {
+                winMessage.textContent = "You Won! You matched all 8 pairs!🎉"
+                winMessage.style.display = "block"
+                alienWin.src = "alien-happy.png"
+            }
 
             matchedCards.push(flippedCards[0])
             matchedCards.push(flippedCards[1])
 
             flippedCards = []
-        }
-         else {
+        } else {
             console.log("Not a match!")
 
             const firstCard = flippedCards[0]
@@ -84,6 +79,11 @@ function handleCardClick(event) {
                 secondCard.querySelector("img").style.display = "block"
                 flippedCards = []
             }, 1000)
+        }
+
+        if (attempts === maxAttempts && pairsMatched < 8) {
+            loseMessage.textContent = "You Lost! You ran out of attempts.😢"
+            loseMessage.style.display = "block"
         }
     }
 }
@@ -98,8 +98,10 @@ function resetGame() {
     pairsBox.textContent = `Pairs Matched: ${pairsMatched} / 8`
     winMessage.textContent = ""
     winMessage.style.display = "none"
+    alienWin.src = "alien.png"
     loseMessage.textContent = ""
     loseMessage.style.display = "none"
+
     for (let oneCard of cards) {
         oneCard.querySelector("img").style.display = "block"
     }
