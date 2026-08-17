@@ -15,6 +15,7 @@ const resetBtn = document.querySelector("#resetBtn")
 const attemptsBox = document.querySelector("#attemptsBox")
 const pairsBox = document.querySelector("#pairsBox")
 const winMessage = document.querySelector("#winMessage")
+const loseMessage = document.querySelector("#loseMessage")
 console.log(cards)
 
 /*-------------------------------- Functions --------------------------------*/
@@ -47,9 +48,11 @@ function handleCardClick(event) {
         attempts++
         attemptsBox.textContent = `Attempts: ${attempts} / ${maxAttempts}`
 
-        if (attempts === maxAttempts) {
-            return
-        }
+       if (attempts === maxAttempts) {
+    loseMessage.textContent = "You Lost! You ran out of attempts.😢"
+    loseMessage.style.display = "block"
+    return
+}
 
         if (
             flippedCards[0].querySelector("img").id ===
@@ -95,6 +98,8 @@ function resetGame() {
     pairsBox.textContent = `Pairs Matched: ${pairsMatched} / 8`
     winMessage.textContent = ""
     winMessage.style.display = "none"
+    loseMessage.textContent = ""
+    loseMessage.style.display = "none"
     for (let oneCard of cards) {
         oneCard.querySelector("img").style.display = "block"
     }
