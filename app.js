@@ -91,7 +91,7 @@ function resetGame() {
 
     attemptsBox.textContent = `Attempts: ${attempts} / ${maxAttempts}`
     pairsBox.textContent = `Pairs Matched: ${pairsMatched} / 8`
-
+    winMessage.textContent = ""
     for (let oneCard of cards) {
         oneCard.querySelector("img").style.display = "block"
     }

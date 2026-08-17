@@ -76,3 +76,42 @@ button {
   display: block;
   margin: 10px auto 0;
 }
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+  margin: 0 auto 10px;
+}
+
+#attemptsBox,
+#pairsBox {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+#winMessage {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  left: 50px;
+  top: 280px;
+  width: 220px;
+  text-align: center;
+
+  padding: 15px;
+  border: 3px solid transparent;
+  border-radius: 15px;
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(#16052f, #35106b) padding-box,
+    linear-gradient(90deg, #b43cff, #5de0ff, #7d35ff) border-box;
+}
+
+#alienWin {
+  width: 220px;
+  position: absolute;
+  left: 50px;
+  top: 350px;
+}
