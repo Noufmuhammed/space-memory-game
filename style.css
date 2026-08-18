@@ -85,6 +85,10 @@ button {
   display: block;
   margin: 5px auto 0;
 }
+button:hover {
+  background: #6c21b3;
+  transform: scale(1.05);
+}
 .game-board {
   display: flex;
   flex-wrap: wrap;
