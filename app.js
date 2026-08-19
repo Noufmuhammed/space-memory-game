@@ -28,6 +28,9 @@ function handleCardClick(event) {
     console.log(event.target)
     console.log(event.target.id)
 
+    if (attempts >= maxAttempts) {
+    return
+}
     if (flippedCards.length === 2) {
         return
     }
